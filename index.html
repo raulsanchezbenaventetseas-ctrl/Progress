@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Progress</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<div id="toast" class="toast"></div>
+<section id="auth" class="auth-shell">
+  <div class="auth-brand"><div class="logo">P</div><div><b>Progress</b><span>Tu día, tus objetivos, tu progreso.</span></div></div>
+  <div class="auth-card">
+    <div class="auth-copy"><p class="eyebrow">PERSONAL TRACKER</p><h1>Haz visible tu progreso.</h1><p>Registra objetivos diarios, mide resultados y conserva tu historial.</p></div>
+    <div class="tabs"><button class="tab active" data-auth="login">Iniciar sesión</button><button class="tab" data-auth="register">Crear cuenta</button></div>
+    <form id="loginForm" class="auth-form"><label>Correo<input id="loginEmail" type="email" required autocomplete="email"></label><label>Contraseña<input id="loginPassword" type="password" required autocomplete="current-password"></label><button class="primary" type="submit">Entrar</button></form>
+    <form id="registerForm" class="auth-form hidden"><label>Nombre de usuario<input id="regUsername" required maxlength="30"></label><label>Correo<input id="regEmail" type="email" required autocomplete="email"></label><label>Contraseña<input id="regPassword" type="password" minlength="8" required autocomplete="new-password"></label><button class="primary" type="submit">Crear cuenta</button><p class="muted">Después de registrarte, un administrador debe aprobar tu acceso.</p></form>
+    <div id="configWarning" class="warning hidden">Falta configurar Supabase. Abre <b>config.js</b> y añade la URL y la publishable key de tu proyecto.</div>
+  </div>
+</section>
+<section id="app" class="app-shell hidden">
+  <aside class="sidebar">
+    <div class="side-brand"><div class="logo small">P</div><span>Progress</span></div>
+    <nav><button data-page="home" class="nav active">Inicio</button><button data-page="calendar" class="nav">Calendario</button><button data-page="stats" class="nav">Estadísticas</button><button data-page="profile" class="nav">Perfil</button><button data-page="admin" class="nav admin-only hidden">Administración</button></nav>
+    <button id="logout" class="logout">Cerrar sesión</button>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><p class="eyebrow">PROGRESS</p><h2 id="pageTitle">Hoy</h2></div><div class="user-chip"><span id="avatar">P</span><div><b id="userName">Usuario</b><small id="userEmail"></small></div></div></header>
+    <div id="page-home" class="page"></div><div id="page-calendar" class="page hidden"></div><div id="page-stats" class="page hidden"></div><div id="page-profile" class="page hidden"></div><div id="page-admin" class="page hidden"></div>
+  </main>
+</section>
+<script src="config.js"></script><script src="app.js"></script>
+</body></html>
